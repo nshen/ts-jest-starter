@@ -1,6 +1,4 @@
-// tests/utils/storage.test.ts
 import localStorage from '@/utils/storage'
-
 
 describe("storage", () => {
   it("可以缓存值", () => {
@@ -13,3 +11,4 @@ describe("storage", () => {
     expect(localStorage.get("newKey")).toEqual("hello");
   });
 });
+

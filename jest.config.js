@@ -1,9 +1,9 @@
 /*
- * For a detailed explanation regarding each configuration property, visit:
+ * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
 
-module.exports = {
+export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -13,8 +13,8 @@ module.exports = {
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/private/var/folders/mn/rgxwl6vd41b37pn6rq7b7s4h0000gn/T/jest_dx",
 
-  // Automatically clear mock calls, instances, contexts and results before every test
-  clearMocks: true,
+  // Automatically clear mock calls, instances and results before every test
+  // clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
@@ -26,10 +26,8 @@ module.exports = {
   coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
-  // NOTE: 这里可以设置路径
   // coveragePathIgnorePatterns: [
-  //   "/node_modules/",
-  //   "src"
+  //   "/node_modules/"
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
@@ -52,11 +50,6 @@ module.exports = {
   // Make calling deprecated APIs throw helpful error messages
   // errorOnDeprecated: false,
 
-  // The default configuration for fake timers
-  // fakeTimers: {
-  //   "enableGlobally": false
-  // },
-
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
 
@@ -74,15 +67,12 @@ module.exports = {
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
-  //   "node_modules",
-  //   "src"
+  //   "node_modules"
   // ],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
   //   "js",
-  //   "mjs",
-  //   "cjs",
   //   "jsx",
   //   "ts",
   //   "tsx",
@@ -91,15 +81,10 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // NOTE: 
   moduleNameMapper: {
-    '^@/(.*)': '<rootDir>/src/$1',
-    '^@test/(.*)': '<rootDir>/test/$1',
+    "^@/(.*)": "<rootDir>/src/$1",
+    "^@test/(.*)": "<rootDir>/test/$1",
   },
-  // "moduleNameMapper": {
-  //   "@/(.*)": "<rootDir>/src/$1"
-  // },
-
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
 
@@ -110,7 +95,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: 'ts-jest',
+  preset: "ts-jest",
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -142,12 +127,12 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFiles: [
+
+  ],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: [
-    '<rootDir>/test/jest-setup.ts'
-  ],
+  // setupFilesAfterEnv: [],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -156,7 +141,6 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  // testEnvironment: "jest-environment-node",
   testEnvironment: "jsdom",
 
   // Options that will be passed to the testEnvironment
@@ -166,10 +150,7 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
-  // ],
+  testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
@@ -184,6 +165,12 @@ module.exports = {
 
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",
+
+  // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
+  // testURL: "http://localhost",
+
+  // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
+  // timers: "real",
 
   // A map from regular expressions to paths to transformers
   // transform: undefined,
